@@ -2,13 +2,16 @@
 #include <WiFi.h>
 
 /*---------------------Mapeamento de Hardware----------------------*/
-#define carga 5
+#define pino_de_medicao 33
 
 
 /*---------------------Constantes de Projeto ----------------------*/
 const char * ssid = "nome_da_rede";
-const char * password = "senha_da_rede";
+const char * password = "nome_da_senha";
 
+
+/*---------------------Variáveis Globais    ----------------------*/
+float tensao =0.0;
 
 /*---------------------Setup Inicial        ----------------------*/
 void setup() {
@@ -30,5 +33,10 @@ void setup() {
 }
 
 void loop() {
+  tensao = analogRead(pino_de_medicao);
+  Serial.println(tensao);
+  delay(1000);
+
+///4095)*16.5);
   // put your main code here, to run repeatedly:
 }
