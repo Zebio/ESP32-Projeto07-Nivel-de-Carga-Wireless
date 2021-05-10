@@ -3,6 +3,14 @@ html
     color: #ffffff;
 	font-family: Verdana;
 	text-align: center;
-	background-color: #151546fd
+	background-color: #0c0c27fd
+}
 
+h2
+{
+	font-size: 30px;
+	
+}
+p{
+	font-size: 22px;
 }

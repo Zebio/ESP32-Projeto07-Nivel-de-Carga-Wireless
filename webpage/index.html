@@ -2,31 +2,40 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="data:,">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="data:,">
 	<title>Projeto07 - Nivel de Carga de bateria</title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
+  <script type = "text/JavaScript"> 
+       function AutoRefresh( t ) {
+          setTimeout("location.reload(true);", t);
+       }
+ </script>
 </head>
 
-<body>
+<style>
+  html
+{
+    color: #ffffff;
+	font-family: Verdana;
+	text-align: center;
+	background-color: #0c0c27fd
+}
 
-    <h2>Nivel de Carga da Bateria</h2>
+h2
+{
+	font-size: 30px;
+	
+}
+p{
+	font-size: 22px;
+}
+</style>
 
-    <p> Tensao lida: </p>
-    <p> Porcentagem de carga: </p>
+<body onload = "JavaScript:AutoRefresh(1000);">
+
+    <h2>Monitoramento de Bateria IOT</h2>
+
+    <p> Tensao lida na bateria: <!--aqui colocamos a variavel da tensao--></p>
+    <p> Porcentagem estimada: <!--aqui colocamos a variavel da porcentagem--></p>
 </body>
-<script> 
-    setInterval(
-    function() 
-    {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() 
-      {
-        if (this.readyState == 4 && this.status == 200)
-          document.getElementById("voltage").innerHTML = this.responseText;
-      };
-      xhttp.open("GET", "/voltage", true);
-      xhttp.send();
-    }, 1500 );
-    
-    </script>
+
 </html>
