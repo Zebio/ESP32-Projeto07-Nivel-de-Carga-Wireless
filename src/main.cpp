@@ -1,7 +1,5 @@
 #include <Arduino.h>
 #include <WiFi.h>
-#include <fstream>
-#include <iostream>
 
 
 /*---------------------Mapeamento de Hardware----------------------*/
@@ -94,7 +92,7 @@ void atualiza_leitura()
                                // 16.5V na ponta de prova equivale a 3.3V no ESP.
                                // Para voltar ao valor original dividimos por
                                // 4095 (3.3V no ADC) multiplicado por 16.5V
-  porcentagem = (tensao - 3.60)/0.005;
+  porcentagem = (tensao - 3.60)/0.003;
   if(porcentagem>100)
     porcentagem=100;
   if (porcentagem<0)
