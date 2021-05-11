@@ -67,6 +67,8 @@ void setup() {
   Serial.println("Endereço de IP: ");    //
   Serial.println(WiFi.localIP());        //mostra o endereço IP no monitor
 
+  server.begin();                        //Inicializa o Server
+
 }
 
 
@@ -78,10 +80,9 @@ void loop() {
     delay(500);                         
   }
 
- // atualiza_leitura();
+  atualiza_leitura();
  // imprime_serial();
   serverWifi();
-  //delay(1000);
 }
 
 /*--------------------------Código das funções ---------------------*/
@@ -115,7 +116,6 @@ void imprime_serial()
 void serverWifi()
 {
   WiFiClient client = server.available();
-  Serial.println("teste"); 
   if (client) {                            
     Serial.println("Novo Cliente Conectado");        
     String currentLine = "";               
@@ -134,9 +134,9 @@ void serverWifi()
           Serial.println("Imprimindo pagina HTML");
 
           client.println(index1_html);
-       //   client.println(tensao);
+          client.println(tensao);
           client.println(index2_html);
-         // client.println(porcentagem);
+          client.println(porcentagem);
           client.println(index3_html);
           client.println();
           break;
